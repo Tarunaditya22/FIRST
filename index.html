@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend</title>
+</head>
+<body>
+  <h1>Hello from Frontend 👋</h1>
+  <button onclick="getData()">Get Data from Backend</button>
+  <p id="response"></p>
+
+  <script>
+    function getData() {
+      fetch('http://localhost:5000/api/hello')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('response').innerText = data.message;
+        })
+        .catch(err => {
+          document.getElementById('response').innerText = 'Error: ' + err;
+        });
+    }
+  </script>
+</body>
+</html>
